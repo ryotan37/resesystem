@@ -17,11 +17,34 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
+
+    protected $primaryKey = 'user_id';
+
     protected $fillable = [
         'name',
+        'position',
         'email',
         'password',
+        'is_admin',
+        'is_reservation_admin',
+        'is_customer_admin',
+        'is_menu_admin',
+        'is_shift_admin',
+        'joined_from'
     ];
+
+    public function position() {
+        return $this->belongsTo('App\Models\Position');
+    }
+    
+    public function reservation_availabilities() {
+        return $this->hasMany('App\Models\Reservation_Availability');
+    }
+
+    public function menu_users() {
+        return $this->hasMany('App\Models\Menu_User');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -39,6 +62,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'joined_from' => 'date',
+        'email_verified_at' => 'datetime'
     ];
 }

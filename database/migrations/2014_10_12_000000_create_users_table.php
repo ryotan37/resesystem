@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('is_customer_admin');
             $table->boolean('is_menu_admin');
             $table->boolean('is_shift_admin');
-            $table->date('joined_from_at');
+            $table->integer('joined_from_at');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
