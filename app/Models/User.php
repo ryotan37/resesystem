@@ -21,6 +21,17 @@ class User extends Authenticatable
 
     protected $primaryKey = 'user_id';
 
+    protected $attributes = [
+        'position_id' => '1',
+        'name' => 'tanaka',
+        'is_admin' => '0',
+        'is_reservation_admin' => '0',
+        'is_customer_admin' => '0',
+        'is_menu_admin' => '0',
+        'is_shift_admin' => '0',
+        'joined_from_at' => '1',
+    ];
+
     protected $fillable = [
         'name',
         'position',
@@ -31,7 +42,7 @@ class User extends Authenticatable
         'is_customer_admin',
         'is_menu_admin',
         'is_shift_admin',
-        'joined_from'
+        'joined_from_at'
     ];
 
     public function position() {

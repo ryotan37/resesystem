@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('birthday');
             $table->boolean('sex');
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
